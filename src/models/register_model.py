@@ -60,10 +60,10 @@ if __name__ == "__main__":
     client = MlflowClient()
     
     stage_version = client.transition_model_version_stage(name=model_name,
-                                          version=model_version,
-                                          stage=model_stage,
-                                          archive_existing_versions=False)
-    
+        version=model_version,
+        stage=model_stage,
+        archive_existing_versions=False
+        )
     staged_model_name = stage_version.name
     staged_model_version = stage_version.version
     staged_model_stage = stage_version.current_stage
