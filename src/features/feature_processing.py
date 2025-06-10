@@ -42,8 +42,11 @@ if __name__ == "__main__":
     region_grp = df.groupby("region")
     # shifting periods
     periods = list(range(1,5))
+    lag_features = pd.DataFrame(index=df.index)
     # generate the lag features
-    lag_features = region_grp["total_pickups"].shift(periods)
+    for period in periods:
+      lag_column_name = f"lag_{period}"
+      lag_features[lag_column_name] = region_grp["total_pickups"].shift(period)
     logger.info("Lag features generated successfully")
     
     # merge them with the original df
