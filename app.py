@@ -26,7 +26,7 @@ model_path = f"models:/{registered_model_name}/{stage}"
 # load the latest model from model registry
 model = mlflow.sklearn.load_model(model_path)
 
-# set the root path
+# set the root path model
 root_path = Path(__file__).parent
 # path of the data
 plot_data_path = root_path / "data/external/plot_data.csv"
